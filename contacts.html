@@ -7,10 +7,13 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/png" sizes="16x16"  href="../assets/favicons/favicon-16x16.png">
+  <meta name="msapplication-TileColor" content="#ffffff">
+  <meta name="theme-color" content="#ffffff">
   <style>
     :root{
       --pink:#ee2f4a;
-      --pink-2:#f45a6b;
+      --pink-2:#ee2f4a;
       --dark:#2b2b35;
       --muted:#6b6b75;
       --card-bg:#ffffff;
@@ -32,7 +35,7 @@
     }
     .container{max-width:1100px;margin:0 auto;width:100%}
     .brand{display:flex;gap:12px;align-items:center}
-    .brand img{width:44px;height:44px;border-radius:8px;padding:6px;background:linear-gradient(135deg,#fff 0%, rgba(255,255,255,0.6) 100%)}
+    .brand img{width:44px;height:44px;border-radius:0px;padding:0px;background:linear-gradient(135deg,#fff 0%, rgba(255,255,255,0.6) 100%)}
     .brand h1{margin:0;font-size:18px;color:#fff;font-weight:600}
     .nav-links{display:flex;gap:24px;align-items:center}
     .nav-links a{color:rgba(255,255,255,0.95);font-weight:500;font-size:15px;padding:6px;border-radius:6px}
@@ -117,7 +120,7 @@
     <div class="container" style="display:flex;align-items:center;justify-content:space-between;">
       <div style="display:flex;align-items:center;gap:12px;">
         <div class="brand">
-          <img src="../assets/logo.png" alt="logo">
+          <img src="./assets/logo.png" alt="logo">
           <h1>Fidelyn</h1>
         </div>
       </div>
@@ -178,11 +181,11 @@
             <div class="note" id="err-message" style="display:none;color:#8b1919">Escreva sua mensagem.</div>
           </div>
 
-          <div class="field">
+          <!-- <div class="field">
             <label for="file">Anexar arquivo (opcional)</label>
             <input id="file" name="file" type="file" accept=".jpg,.png,.pdf">
             <div class="note">PNG, JPG ou PDF — até 5 MB.</div>
-          </div>
+          </div> -->
 
           <div class="actions">
             <button type="submit" class="btn" id="submitBtn"><span id="btnText">Enviar mensagem</span></button>
@@ -205,7 +208,7 @@
           <p style="margin:6px 0 0;color:var(--muted)"><a href="mailto:contato@fidelyn.com">contato@fidelyn.com</a></p>
         </div>
 
-        <div class="info-card">
+        <!-- <div class="info-card">
           <h4>Telefone</h4>
           <p style="margin:6px 0 0;color:var(--muted)"><a href="tel:+5511999999999">+55 (11) 99999-9999</a></p>
         </div>
@@ -213,22 +216,22 @@
         <div class="info-card">
           <h4>Endereço</h4>
           <p style="margin:6px 0 0;color:var(--muted)">Av. Exemplo, 123 — Recife, PE</p>
-        </div>
+        </div> -->
 
-        <div class="info-card">
+        <!-- <div class="info-card">
           <h4>Siga-nos</h4>
           <div class="socials">
             <a aria-label="Instagram" href="#" title="Instagram">IG</a>
             <a aria-label="Facebook" href="#" title="Facebook">FB</a>
             <a aria-label="Linkedin" href="#" title="Linkedin">LI</a>
           </div>
-        </div>
+        </div> -->
       </aside>
     </div>
   </main>
 
   <footer>
-    <div class="container">Feito com ♥ — Modelo baseado no banner Fidelyn. Teste e personalize como quiser.</div>
+    <div class="container">Feito com ♥ — CNPJ: 62.326.027/0001-26 — Todos os direitos reservados.</div>
   </footer>
 
   <script>
@@ -256,7 +259,7 @@
       const email = form.email.value.trim();
       const subject = form.subject.value.trim();
       const message = form.message.value.trim();
-      const file = form.file.files[0];
+      //const file = form.file.files[0];
 
       let valid = true;
       if(!name){ showError('err-name', true); valid = false; } else showError('err-name', false);
