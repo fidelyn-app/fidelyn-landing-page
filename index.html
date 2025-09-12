@@ -10,10 +10,11 @@
   <link rel="icon" type="image/png" sizes="16x16"  href="../assets/favicons/favicon-16x16.png">
   <meta name="msapplication-TileColor" content="#ffffff">
   <meta name="theme-color" content="#ffffff">
+
   <style>
     :root{
       --pink:#F22E52; /* cor principal */
-      --pink-2:#f45a6b;
+      --pink-2:#F22E52;
       --dark:#2b2b35;
       --muted:#6b6b75;
       --card-bg: #ffffff;
@@ -21,34 +22,29 @@
     }
     *{box-sizing:border-box}
     html,body{height:100%;font-family:'Poppins',system-ui,-apple-system,Segoe UI,Roboto,'Helvetica Neue',Arial; margin:0;color:var(--dark);background:#fff}
-
-    /* HERO */
-    .hero{background:var(--pink); color:white; padding:48px 6vw 80px; position:relative; overflow:hidden}
-    .container{max-width:1100px;margin:0 auto}
-    .topbar{display:flex;align-items:center;justify-content:space-between;margin-bottom:10%}
-    .brand{display:flex;gap:12px;align-items:center}
-    .logo{width:44px;height:44px;border-radius:8px;background:linear-gradient(135deg,#fff 0%, rgba(255,255,255,0.6) 100%);display:flex;align-items:center;justify-content:center;font-weight:700;color:var(--pink);font-size:18px}
-    .brand h1{margin:0;font-size:32px;letter-spacing:-0.2px}
-
-    .nav-links{
+    a{color:inherit;text-decoration:none}
+    /* === TOPBAR (copiado da sua página de contato) === */
+    .topbar{
+      background:var(--pink);
+      color:#fff;
+      padding:18px 6vw;
       display:flex;
-      gap:var(--nav-gap);
       align-items:center;
+      justify-content:space-between;
+      gap:12px;
     }
-    .nav-links a{
-      color:rgba(255,255,255,0.95);
-      font-weight:500;
-      font-size:18px;
-      padding:8px 26px;
-      border-radius:6px;
-      transition: background .18s ease, color .18s ease, transform .12s ease;
-    }
-    .nav-links a:hover{
-      background: rgba(255,255,255,0.06);
-      transform: translateY(-2px);
-      color: #fff;
-    }
+    .container{max-width:1100px;margin:0 auto;width:100%}
+    .brand{display:flex;gap:12px;align-items:center}
+    .brand img{width:44px;height:44px;border-radius:0px;padding:0px;background:linear-gradient(135deg,#fff 0%, rgba(255,255,255,0.6) 100%)}
+    .brand h1{margin:0;font-size:18px;color:#fff;font-weight:600}
+    .nav-links{display:flex;gap:24px;align-items:center}
+    .nav-links a{color:rgba(255,255,255,0.95);font-weight:500;font-size:15px;padding:6px;border-radius:6px}
+    .nav-links a:hover{background: rgba(255,255,255,0.06); transform:translateY(-2px)}
+    /* === fim topbar === */
 
+    /* HERO (ajustado para não conflitar) */
+    .hero{background:var(--pink); color:white; padding:48px 6vw 80px; position:relative; overflow:hidden}
+    .hero .container{max-width:1100px;margin:0 auto}
     .hero-grid{display:grid;grid-template-columns:1fr 360px;gap:32px;align-items:center}
 
     .headline{font-size:64px;line-height:1.02;margin:12px 0 12px;font-weight:700}
@@ -59,12 +55,9 @@
     .badges{display:flex;gap:8px}
     .badge{background:#fff;color:var(--dark);padding:6px 10px;border-radius:6px;font-weight:600;font-size:13px;box-shadow:var(--shadow)}
 
-    /* Phone mock */\    
-    .phone-wrap{display:flex;justify-content:center;}
     .phone{width:320px;max-width:100%;border-radius:30px;padding:0px;box-shadow:0 30px 60px rgba(0,0,0,0.12);border:0px solid rgba(0,0,0,0.04)}
     .phone img{display:block;width:100%;height:auto;border-radius:0px}
 
-    /* FEATURES SECTION */
     .features{padding:56px 6vw 80px}
     .features .heading{max-width:700px;margin:0 auto 22px;text-align:left}
     .features h2{font-size:28px;margin:0 0 12px;color:var(--dark)}
@@ -75,7 +68,6 @@
     .card h3{margin:0 0 8px;font-size:16px}
     .card p{margin:0;color:var(--muted);font-size:14px}
 
-    /* Four features row */
     .grid-4{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-top:10%;max-width:920px;margin-left:auto;margin-right:auto}
     .small-card{background:#fff;border-radius:12px;padding:18px;box-shadow:var(--shadow);border:1px solid rgba(18,18,20,0.03)}
     .small-card h4{margin:0 0 6px;font-size:15px}
@@ -93,54 +85,54 @@
       .headline{font-size:36px}
       .cards{grid-template-columns:1fr}
       .grid-4{grid-template-columns:1fr 1fr}
+      .nav-links{display:none} /* mesma UX do outro layout */
     }
     @media (max-width:480px){
       .headline{font-size:28px}
-      .topbar{margin-bottom:12px}
       .qr{width:90px;height:90px}
       .grid-4{grid-template-columns:1fr}
     }
 
-    /* small footer */
     footer{padding:36px 6vw;background:#fafafa;color:var(--muted);text-align:center}
 
-    /* Nice little micro-interactions */
+    /* micro-interactions */
     .card, .small-card{transition:transform .22s ease, box-shadow .22s ease}
     .card:hover, .small-card:hover{transform:translateY(-6px);box-shadow:0 28px 60px rgba(18,18,20,0.08)}
-
   </style>
 </head>
 <body>
 
-  <header class="hero">
-    <div class="container">
-      <div class="topbar">
+  <!-- === Topbar idêntico ao da página de contato === -->
+  <header class="topbar">
+    <div class="container" style="display:flex;align-items:center;justify-content:space-between;">
+      <div style="display:flex;align-items:center;gap:12px;">
         <div class="brand">
           <img src="../assets/logo.png" alt="logo">
           <h1>Fidelyn</h1>
         </div>
-
-        <!-- NAV LINKS -->
-        <nav class="nav-links" aria-label="Menu principal">
-          <a href="index.html">Home</a>
-          <a href="#about">Sobre</a>
-          <a href="contacts.html">Contato</a>
-        </nav>
       </div>
 
+      <nav class="nav-links" aria-label="Menu principal">
+        <a href="index.html">Home</a>
+        <a href="#about">Sobre</a>
+        <a href="contacts.html">Contato</a>
+      </nav>
+    </div>
+  </header>
+  <!-- === fim topbar === -->
+
+  <header class="hero">
+    <div class="container">
       <div class="hero-grid">
         <div>
           <h2 class="headline">Seu Cartão<br>Fidelidade Digital!</h2>
           <p class="sub">Gerencie todos os seus programas de fidelidade em um só app. Receba notificações quando tiver recompensas para resgatar e aproveite ao máximo seus pontos.</p>
         </div>
 
-
-          <div class="phone">
-            <img src="../assets/iphone.png" alt="mockup app">
-          </div>
-        
+        <div class="phone">
+          <img src="../assets/iphone.png" alt="mockup app">
+        </div>
       </div>
-
     </div>
   </header>
 
@@ -150,7 +142,6 @@
         <h2>A melhor forma de aumentar suas recompensas</h2>
         <p class="lead">Gerencie todos os seus cartões em um só lugar. Receba alertas sobre pontos expirando e campanhas bônus para aproveitar melhor suas vantagens.</p>
       </div>
-
 
       <div class="grid-4">
         <div class="small-card">
@@ -185,6 +176,17 @@
       if(b){
         alert('Ao clicar no badge você pode redirecionar para a loja correspondente.');
       }
+    });
+
+    // smooth scrolling para anchors internos (opcional)
+    document.querySelectorAll('a[href^="#"]').forEach(a=>{
+      a.addEventListener('click', (ev)=>{
+        const href = a.getAttribute('href');
+        if(href && href.startsWith('#')){
+          const el = document.querySelector(href);
+          if(el){ ev.preventDefault(); el.scrollIntoView({behavior:'smooth', block:'start'}); }
+        }
+      });
     });
   </script>
 </body>
