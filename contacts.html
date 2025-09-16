@@ -251,7 +251,7 @@
       return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
     }
 
-    form.addEventListener('submit', async (e)=>{
+    form.addEventListener('submit', async (e) => {
       e.preventDefault();
       feedback.innerHTML = '';
 
@@ -259,38 +259,38 @@
       const email = form.email.value.trim();
       const subject = form.subject.value.trim();
       const message = form.message.value.trim();
-      //const file = form.file.files[0];
 
       let valid = true;
-      if(!name){ showError('err-name', true); valid = false; } else showError('err-name', false);
-      if(!validateEmail(email)){ showError('err-email', true); valid = false; } else showError('err-email', false);
-      if(!message){ showError('err-message', true); valid = false; } else showError('err-message', false);
+      if (!name) { showError('err-name', true); valid = false; } else showError('err-name', false);
+      if (!validateEmail(email)) { showError('err-email', true); valid = false; } else showError('err-email', false);
+      if (!message) { showError('err-message', true); valid = false; } else showError('err-message', false);
 
-      if(!valid) return;
+      if (!valid) return;
 
-      // start loading
       submitBtn.disabled = true;
       btnText.innerHTML = 'Enviando...';
       submitBtn.style.opacity = 0.9;
 
       try {
-        // se quiser enviar para sua API, descomente e ajuste endpoint
-        // const payload = new FormData();
-        // payload.append('name', name);
-        // payload.append('email', email);
-        // payload.append('subject', subject);
-        // payload.append('message', message);
-        // if (file) payload.append('file', file);
-        // const resp = await fetch('/api/contact', { method:'POST', body: payload });
-        // const result = await resp.json();
-        // if (!resp.ok) throw new Error(result.message || 'Erro no envio');
+        const resp = await fetch('https://api.staging.fidelyn.com.br/contact', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            name,
+            email,
+            subject,
+            message
+          })
+        });
 
-        // Simulação de envio (substitua pela chamada real acima)
-        await new Promise(r => setTimeout(r, 900));
+        const result = await resp.json();
+        if (!resp.ok) throw new Error(result.message || 'Erro no envio');
 
         feedback.innerHTML = '<div class="alert success">Mensagem enviada com sucesso — retornaremos em breve!</div>';
         form.reset();
-      } catch(err){
+      } catch (err) {
         console.error(err);
         feedback.innerHTML = '<div class="alert error">Ocorreu um erro ao enviar. Tente novamente mais tarde.</div>';
       } finally {
