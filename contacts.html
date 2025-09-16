@@ -127,7 +127,7 @@
 
       <nav class="nav-links" aria-label="Menu principal">
         <a href="index.html">Home</a>
-        <a href="index.html#about">Sobre</a>
+        <a href="changelog.html">Changelog</a>
         <a href="#contact">Contato</a>
       </nav>
     </div>
@@ -285,11 +285,13 @@
           })
         });
 
-        const result = await resp.json();
-        if (!resp.ok) throw new Error(result.message || 'Erro no envio');
 
-        feedback.innerHTML = '<div class="alert success">Mensagem enviada com sucesso — retornaremos em breve!</div>';
-        form.reset();
+        if(resp.status === 201){
+          feedback.innerHTML = '<div class="alert success">Mensagem enviada com sucesso — retornaremos em breve!</div>';
+          form.reset();
+        } else {
+          throw new Error(result.message || 'Erro no envio');
+        }
       } catch (err) {
         console.error(err);
         feedback.innerHTML = '<div class="alert error">Ocorreu um erro ao enviar. Tente novamente mais tarde.</div>';

@@ -1,0 +1,40 @@
+[
+  {
+    "title": "v1.3.0 — Otimizações de checkout",
+    "date": "2025-09-10",
+    "tags": ["added", "changed"],
+    "body": [
+      "Fluxo de pagamento reescrito para reduzir falhas em redes móveis.",
+      "Adicionado suporte a pagamentos parcelados via novo gateway.",
+      "Melhorias de performance na página de confirmação (redução de 30% no TTFB)."
+    ]
+  },
+  {
+    "title": "v1.3.5 — Hotfix de notificações",
+    "date": "2025-07-22",
+    "tags": ["fixed"],
+    "body": [
+      "Corrigida perda de eventos de notificação em horários de pico.",
+      "Ajuste na reconexão do WebSocket para evitar duplicação de mensagens."
+    ]
+  },
+  {
+    "title": "v1.3.0 — Painel de administração",
+    "date": "2025-05-11",
+    "tags": ["added"],
+    "body": [
+      "Lançado painel com métricas e listagem de clientes.",
+      "Implementadas permissões básicas (admin, gerente).",
+      "Exportação de relatórios em CSV."
+    ]
+  },
+  {
+    "title": "v1.2.2 — Segurança e estabilidade",
+    "date": "2025-03-02",
+    "tags": ["changed", "fixed"],
+    "body": [
+      "Atualizada biblioteca de autenticação para mitigar XSS em formulários.",
+      "Corrigido bug que permitia tokens expirados serem usados em refresh."
+    ]
+  }
+]
