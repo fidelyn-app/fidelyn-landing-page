@@ -40,7 +40,10 @@
     .nav-links{display:flex;gap:24px;align-items:center}
     .nav-links a{color:rgba(255,255,255,0.95);font-weight:500;font-size:15px;padding:6px;border-radius:6px}
     .nav-links a:hover{background: rgba(255,255,255,0.06); transform:translateY(-2px)}
-
+    .nav-links a.active{
+      background: rgba(255,255,255,0.1);
+      font-weight: 600;
+    }
     /* HERO */
     .hero{
       background:linear-gradient(180deg,var(--pink),var(--pink-2));
@@ -127,8 +130,9 @@
 
       <nav class="nav-links" aria-label="Menu principal">
         <a href="index.html">Home</a>
+        <a href="merchants.html">Para Lojistas</a>
         <a href="privacy.html">Termos e Privacidade</a>
-        <a href="#contact">Contato</a>
+        <a href="#contact" class="active">Contato</a>
       </nav>
     </div>
   </header>
