@@ -156,6 +156,20 @@
       background:var(--pink);
       box-shadow:0 0 0 10px rgba(242,46,82,0.08);
       flex-shrink:0;
+      animation:pulse 2s ease-in-out infinite;
+      position:relative;
+    }
+    @keyframes pulse{
+      0%, 100%{
+        transform:scale(1);
+        box-shadow:0 0 0 10px rgba(242,46,82,0.08);
+        opacity:1;
+      }
+      50%{
+        transform:scale(1.1);
+        box-shadow:0 0 0 16px rgba(242,46,82,0.15);
+        opacity:0.9;
+      }
     }
 
     .phone{width:320px;max-width:100%;border-radius:30px;padding:0px;box-shadow:0 30px 60px rgba(0,0,0,0.12);border:0px solid rgba(0,0,0,0.04)}
