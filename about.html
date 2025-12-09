@@ -1,0 +1,308 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Sobre a Fidelyn — Missão, Visão e Fundadores</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/png" sizes="16x16"  href="../assets/favicons/favicon-16x16.png">
+  <meta name="msapplication-TileColor" content="#ffffff">
+  <meta name="theme-color" content="#ffffff">
+
+  <style>
+    :root{
+      --pink:#F22E52;
+      --dark:#2b2b35;
+      --muted:#6b6b75;
+      --card-bg: #ffffff;
+      --shadow: 0 8px 30px rgba(18,18,20,0.06);
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%;font-family:'Poppins',system-ui,-apple-system,Segoe UI,Roboto,'Helvetica Neue',Arial; margin:0;color:var(--dark);background:#fff}
+    a{color:inherit;text-decoration:none}
+    .container{max-width:1100px;margin:0 auto;width:100%;padding:0 6vw}
+
+    /* Topbar */
+    .topbar{
+      background:var(--pink);
+      color:#fff;
+      padding:18px 6vw;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+    }
+    .brand{display:flex;gap:12px;align-items:center}
+    .brand img{width:44px;height:44px;border-radius:0px;padding:0px;background:linear-gradient(135deg,#fff 0%, rgba(255,255,255,0.6) 100%)}
+    .brand h1{margin:0;font-size:18px;color:#fff;font-weight:600}
+    .nav-links{display:flex;gap:24px;align-items:center}
+    .nav-links a{color:rgba(255,255,255,0.95);font-weight:500;font-size:15px;padding:6px;border-radius:6px}
+    .nav-links a:hover{background: rgba(255,255,255,0.06); transform:translateY(-2px)}
+    .nav-links a.active{
+      background: rgba(255,255,255,0.1);
+      font-weight: 600;
+    }
+
+    /* Hero */
+    .hero{
+      background:#f9f9fa;
+      padding:80px 6vw 90px;
+    }
+    .hero h1{
+      font-size:44px;
+      margin:0 0 12px;
+      font-weight:700;
+      color:var(--dark);
+    }
+    .hero p.sub{
+      font-size:18px;
+      color:var(--muted);
+      max-width:720px;
+      margin:0;
+      line-height:1.6;
+    }
+
+    /* Mission/Vision/Values */
+    .pillars{
+      padding:70px 6vw;
+    }
+    .pillars-grid{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:18px;
+      margin-top:32px;
+    }
+    .pillar-card{
+      background:#fff;
+      border-radius:12px;
+      padding:22px;
+      box-shadow:var(--shadow);
+      border:1px solid rgba(18,18,20,0.03);
+    }
+    .pillar-card h3{
+      margin:0 0 10px;
+      font-size:18px;
+    }
+    .pillar-card p{
+      margin:0;
+      color:var(--muted);
+      font-size:14px;
+      line-height:1.6;
+    }
+
+    /* Founders */
+    .founders{
+      padding:80px 6vw;
+      background:#fff;
+    }
+    .founders h2{
+      font-size:32px;
+      margin:0 0 12px;
+    }
+    .founders p.lead{
+      margin:0 0 28px;
+      color:var(--muted);
+      font-size:16px;
+    }
+    .founders-grid{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:24px;
+    }
+    .founder-card{
+      background:#fff;
+      border-radius:14px;
+      padding:22px;
+      box-shadow:var(--shadow);
+      border:1px solid rgba(18,18,20,0.03);
+      display:grid;
+      grid-template-columns:120px 1fr;
+      gap:18px;
+      align-items:start;
+    }
+    .founder-card img{
+      width:120px;
+      height:120px;
+      object-fit:cover;
+      border-radius:12px;
+      background:#f2f2f5;
+    }
+    .founder-card h3{
+      margin:0 0 6px;
+      font-size:18px;
+    }
+    .founder-card .role{
+      margin:0 0 10px;
+      color:var(--pink);
+      font-weight:600;
+      font-size:14px;
+    }
+    .founder-card p{
+      margin:0;
+      color:var(--muted);
+      font-size:14px;
+      line-height:1.6;
+    }
+
+    /* Timeline */
+    .timeline{
+      padding:70px 6vw 90px;
+      background:#f9f9fa;
+    }
+    .timeline h2{
+      font-size:32px;
+      margin:0 0 12px;
+    }
+    .timeline p.lead{
+      margin:0 0 30px;
+      color:var(--muted);
+      font-size:16px;
+    }
+    .timeline-list{
+      list-style:none;
+      padding:0;
+      margin:0;
+      display:grid;
+      gap:16px;
+    }
+    .timeline-item{
+      background:#fff;
+      border-radius:12px;
+      padding:18px 20px;
+      box-shadow:var(--shadow);
+      border:1px solid rgba(18,18,20,0.03);
+      display:flex;
+      gap:14px;
+      align-items:flex-start;
+    }
+    .timeline-year{
+      min-width:70px;
+      font-weight:700;
+      color:var(--pink);
+      font-size:15px;
+    }
+    .timeline-text{
+      color:var(--muted);
+      font-size:14px;
+      line-height:1.6;
+      margin:0;
+    }
+
+    footer{
+      padding:36px 6vw;
+      background:#fafafa;
+      color:var(--muted);
+      text-align:center;
+    }
+
+    /* Responsivo */
+    @media (max-width:900px){
+      .pillars-grid{grid-template-columns:1fr 1fr}
+      .founders-grid{grid-template-columns:1fr}
+      .founder-card{grid-template-columns:100px 1fr}
+    }
+    @media (max-width:640px){
+      .hero h1{font-size:32px}
+      .hero p.sub{font-size:16px}
+      .pillars-grid{grid-template-columns:1fr}
+      .founder-card{grid-template-columns:1fr; text-align:left}
+      .founder-card img{width:100%;height:200px}
+    }
+    @media (max-width:480px){
+      .nav-links{display:none}
+    }
+  </style>
+</head>
+<body>
+
+  <header class="topbar">
+    <div class="container" style="display:flex;align-items:center;justify-content:space-between;">
+      <div style="display:flex;align-items:center;gap:12px;">
+        <div class="brand">
+          <img src="../assets/logo.png" alt="logo">
+          <h1>Fidelyn</h1>
+        </div>
+      </div>
+      <nav class="nav-links" aria-label="Menu principal">
+        <a href="index.html">Home</a>
+        <a href="merchants.html">Para Lojistas</a>
+        <a href="privacy.html">Termos e Privacidade</a>
+        <a href="contacts.html">Contato</a>
+        <a href="about.html" class="active">Sobre</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="container">
+      <h1>Sobre a Fidelyn</h1>
+      <p class="sub">Conectamos lojas e clientes com experiências de fidelidade simples, digitais e seguras, ajudando pequenos negócios a crescer e consumidores a resgatarem recompensas sem fricção.</p>
+    </div>
+  </section>
+
+  <section class="pillars">
+    <div class="container">
+      <h2 style="margin:0;font-size:28px;">Nossa essência</h2>
+      <div class="pillars-grid">
+        <div class="pillar-card">
+          <h3>Missão</h3>
+          <p>Digitalizar a fidelização de pequenos e médios negócios, oferecendo simplicidade para lojas e praticidade para clientes.</p>
+        </div>
+        <div class="pillar-card">
+          <h3>Visão</h3>
+          <p>Ser a principal plataforma de fidelidade da América Latina para negócios de bairro, impulsionando o relacionamento entre marcas e consumidores.</p>
+        </div>
+        <div class="pillar-card">
+          <h3>Valores</h3>
+          <p>Transparência, proximidade com o cliente, simplicidade no produto, segurança de dados e foco em resultado para lojistas e usuários.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="founders">
+    <div class="container">
+      <h2>Fundadores</h2>
+      <p class="lead">Duas trajetórias complementares, unidas para simplificar a fidelização no varejo.</p>
+      <div class="founders-grid">
+        <div class="founder-card">
+          <img src="../assets/founder-1.jpg" alt="Foto do fundador 1">
+          <div>
+            <h3>Cleodon Gomes</h3>
+            <p class="role">Co-Founder &amp; CEO</p>
+            <p>Mais de 5 anos construindo produtos digitais para varejo. Liderou times de produto em startups de crescimento rápido, com foco em engajamento e experiência do usuário.</p>
+          </div>
+        </div>
+        <div class="founder-card">
+          <img src="../assets/founder-2.jpg" alt="Foto do fundador 2">
+          <div>
+            <h3>Jonatha Rihan</h3>
+            <p class="role">Co-Founder &amp; CTO</p>
+            <p>Engenheiro de software com passagem por fintechs e plataformas B2B. Especialista em arquitetura escalável e segurança, liderou times que entregaram soluções para milhares de clientes no Brasil e América Latina.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="timeline">
+    <div class="container">
+      <h2>Nossa trajetória</h2>
+      <p class="lead">Os passos que moldaram a Fidelyn.</p>
+      <ul class="timeline-list">
+        <li class="timeline-item">
+          <span class="timeline-year">2025</span>
+          <p class="timeline-text">Início do projeto após entrevistas com dezenas de lojistas que ainda dependiam de cartões de papel para fidelizar clientes. Lançamento do MVP do app para clientes e primeiros pilotos com estabelecimentos parceiros.</p>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">Feito com ♥ — CNPJ: 62.326.027/0001-26 — Todos os direitos reservados.</div>
+  </footer>
+</body>
+</html>
+
