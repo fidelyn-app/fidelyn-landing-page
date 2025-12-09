@@ -44,6 +44,38 @@
       background: rgba(255,255,255,0.1);
       font-weight: 600;
     }
+    /* Menu Mobile */
+    .menu-toggle{
+      display:none;
+      background:none;
+      border:none;
+      color:#fff;
+      cursor:pointer;
+      padding:8px;
+      flex-direction:column;
+      gap:5px;
+      align-items:center;
+      justify-content:center;
+      width:40px;
+      height:40px;
+    }
+    .menu-toggle span{
+      display:block;
+      width:24px;
+      height:2px;
+      background:#fff;
+      border-radius:2px;
+      transition:all 0.3s ease;
+    }
+    .menu-toggle.active span:nth-child(1){
+      transform:rotate(45deg) translate(7px,7px);
+    }
+    .menu-toggle.active span:nth-child(2){
+      opacity:0;
+    }
+    .menu-toggle.active span:nth-child(3){
+      transform:rotate(-45deg) translate(7px,-7px);
+    }
     /* === HERO === */
     .hero{background:var(--pink); color:white; padding:48px 6vw 80px; position:relative; overflow:hidden}
     .hero .container{max-width:1100px;margin:0 auto}
@@ -56,6 +88,75 @@
     .qr{width:110px;height:110px;background:#fff;border-radius:6px;padding:10px;box-shadow:var(--shadow)}
     .badges{display:flex;gap:8px}
     .badge{background:#fff;color:var(--dark);padding:6px 10px;border-radius:6px;font-weight:600;font-size:13px;box-shadow:var(--shadow)}
+
+    /* Banner de stats em tempo real */
+    .stats-section{
+      padding:80px 6vw;
+      background:#f9f9fa;
+    }
+    .stats-section .container{
+      max-width:1000px;
+    }
+    .stats-heading{
+      text-align:center;
+      margin-bottom:48px;
+    }
+    .stats-heading h2{
+      font-size:36px;
+      margin:0 0 16px;
+      color:var(--dark);
+      font-weight:700;
+    }
+    .stats-heading p{
+      font-size:18px;
+      color:var(--muted);
+      margin:0;
+      max-width:700px;
+      margin-left:auto;
+      margin-right:auto;
+      line-height:1.6;
+    }
+    .stats-banner{
+      background:#fff;
+      box-shadow:var(--shadow);
+      border:1px solid rgba(16,16,20,0.03);
+      border-radius:20px;
+      padding:48px 56px;
+      display:flex;
+      gap:48px;
+      align-items:center;
+      justify-content:center;
+      max-width:100%;
+    }
+    .stat-block{
+      display:flex;
+      flex-direction:column;
+      gap:12px;
+      text-align:center;
+      flex:1;
+      max-width:300px;
+    }
+    .stat-label{
+      font-size:16px;
+      color:var(--muted);
+      text-transform:uppercase;
+      letter-spacing:0.5px;
+      font-weight:600;
+    }
+    .stat-value{
+      font-size:56px;
+      font-weight:700;
+      color:var(--pink);
+      line-height:1.1;
+    }
+    .stats-dot{
+      width:12px;
+      height:12px;
+      border-radius:50%;
+      background:var(--pink);
+      box-shadow:0 0 0 10px rgba(242,46,82,0.08);
+      flex-shrink:0;
+    }
 
     .phone{width:320px;max-width:100%;border-radius:30px;padding:0px;box-shadow:0 30px 60px rgba(0,0,0,0.12);border:0px solid rgba(0,0,0,0.04)}
     .phone img{display:block;width:100%;height:auto;border-radius:0px}
@@ -239,13 +340,62 @@
       .headline{font-size:36px}
       .cards{grid-template-columns:1fr}
       .grid-4{grid-template-columns:1fr 1fr}
-      .nav-links{display:none} /* mesma UX do outro layout */
+      .menu-toggle{display:flex}
+      .nav-links{
+        display:none;
+        position:absolute;
+        top:100%;
+        left:0;
+        right:0;
+        background:var(--pink);
+        flex-direction:column;
+        padding:24px 6vw;
+        gap:0;
+        box-shadow:0 8px 24px rgba(0,0,0,0.15);
+        z-index:1000;
+      }
+      .nav-links.active{
+        display:flex;
+      }
+      .nav-links a{
+        padding:14px 0;
+        border-bottom:1px solid rgba(255,255,255,0.1);
+        width:100%;
+        text-align:left;
+      }
+      .nav-links a:last-child{
+        border-bottom:none;
+      }
+      .topbar{
+        position:relative;
+      }
+      .stats-section{padding:60px 6vw}
+      .stats-heading h2{font-size:28px}
+      .stats-heading p{font-size:16px}
+      .stats-banner{
+        flex-direction:row;
+        padding:36px 32px;
+        gap:32px;
+      }
+      .stats-dot{display:none}
+      .stat-value{font-size:42px}
+      .stat-label{font-size:14px}
     }
     @media (max-width:480px){
       .headline{font-size:28px}
       .qr{width:90px;height:90px}
       .grid-4{grid-template-columns:1fr}
       .store-buttons img { height: 40px; } /* Ajuste botões */
+      .stats-section{padding:48px 6vw}
+      .stats-heading h2{font-size:24px}
+      .stats-heading p{font-size:15px}
+      .stats-banner{
+        flex-direction:column;
+        padding:32px 24px;
+        gap:24px;
+      }
+      .stat-value{font-size:36px}
+      .stat-label{font-size:13px}
     }
     
     /* === Responsive (Novas Seções) === */
@@ -271,11 +421,17 @@
         </div>
       </div>
 
+      <button class="menu-toggle" aria-label="Abrir menu" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
       <nav class="nav-links" aria-label="Menu principal">
         <a href="index.html" class="active">Home</a>
         <a href="merchants.html">Para Lojistas</a>
         <a href="privacy.html">Termos e Privacidade</a>
         <a href="contacts.html">Contato</a>
+        <a href="about.html">Sobre</a>
       </nav>
     </div>
   </header>
@@ -285,7 +441,6 @@
         <div>
           <h2 class="headline">Seu Cartão<br>Fidelidade Digital!</h2>
           <p class="sub">Gerencie todos os seus programas de fidelidade em um só app. Receba notificações quando tiver recompensas para resgatar e aproveite ao máximo seus pontos.</p>
-          
           <div class="store-buttons">
             <a href="/soon.html" title="Download na App Store">
               <img src="./assets/badge-ios.svg" alt="Baixar na App Store">
@@ -343,6 +498,26 @@
 
     </div>
   </main>
+
+  <section class="stats-section" aria-label="Números em tempo real">
+    <div class="container">
+      <div class="stats-heading">
+        <h2>Nossa Comunidade em Crescimento</h2>
+        <p>Várias pessoas e estabelecimentos já confiam no Fidelyn para transformar a experiência de fidelidade. Acompanhe nossos números em tempo real e faça parte dessa revolução digital.</p>
+      </div>
+      <div class="stats-banner">
+        <div class="stat-block">
+          <span class="stat-label">Clientes ativos</span>
+          <span class="stat-value" id="total-users">--</span>
+        </div>
+        <div class="stats-dot" aria-hidden="true"></div>
+        <div class="stat-block">
+          <span class="stat-label">Lojas ativas</span>
+          <span class="stat-value" id="total-stores">--</span>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <section class="for-business">
     <div class="container">
@@ -435,6 +610,51 @@
       });
     });
     // === [FIM] NOVO SCRIPT DE ANIMAÇÃO ===
+
+    // === CONTADORES EM TEMPO REAL (Socket.IO) ===
+    (function(){
+      const SOCKET_URL = 'https://api.fidelyn.com.br/'; // ajuste conforme backend
+      const usersEl = document.getElementById('total-users');
+      const storesEl = document.getElementById('total-stores');
+      if(!usersEl || !storesEl) return;
+
+      function updateCounters(users, stores){
+        if(typeof users === 'number') usersEl.textContent = users.toLocaleString('pt-BR');
+        if(typeof stores === 'number') storesEl.textContent = stores.toLocaleString('pt-BR');
+      }
+
+      function ensureSocket(callback){
+        if(window.io) return callback(window.io);
+        const script = document.createElement('script');
+        script.src = 'https://cdn.socket.io/4.7.5/socket.io.min.js';
+        script.crossOrigin = 'anonymous';
+        script.onload = () => callback(window.io);
+        script.onerror = () => console.error('❌ Falha ao carregar Socket.IO');
+        document.head.appendChild(script);
+      }
+
+      ensureSocket((io)=>{
+        const socket = io(SOCKET_URL, {
+          transports: ['websocket','polling'],
+          reconnection: true,
+          reconnectionDelay: 1000,
+          reconnectionAttempts: 5,
+        });
+
+        socket.on('connect', ()=> console.log('✅ Conectado ao servidor Socket.IO'));
+        socket.on('stats:init', (data)=> {
+          console.log('📊 Stats iniciais:', data);
+          updateCounters(data?.totalUsers, data?.totalStores);
+        });
+        socket.on('stats:update', (data)=> {
+          console.log('🔄 Stats atualizados:', data);
+          updateCounters(data?.totalUsers, data?.totalStores);
+        });
+        socket.on('connect_error', (error)=> console.error('❌ Erro ao conectar:', error));
+        socket.on('disconnect', ()=> console.log('🔌 Desconectado do servidor'));
+      });
+    })();
   </script>
+  <script src="mobile-menu.js"></script>
 </body>
 </html>

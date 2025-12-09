@@ -44,6 +44,38 @@
       background: rgba(255,255,255,0.1);
       font-weight: 600;
     }
+    /* Menu Mobile */
+    .menu-toggle{
+      display:none;
+      background:none;
+      border:none;
+      color:#fff;
+      cursor:pointer;
+      padding:8px;
+      flex-direction:column;
+      gap:5px;
+      align-items:center;
+      justify-content:center;
+      width:40px;
+      height:40px;
+    }
+    .menu-toggle span{
+      display:block;
+      width:24px;
+      height:2px;
+      background:#fff;
+      border-radius:2px;
+      transition:all 0.3s ease;
+    }
+    .menu-toggle.active span:nth-child(1){
+      transform:rotate(45deg) translate(7px,7px);
+    }
+    .menu-toggle.active span:nth-child(2){
+      opacity:0;
+    }
+    .menu-toggle.active span:nth-child(3){
+      transform:rotate(-45deg) translate(7px,-7px);
+    }
     /* HERO */
     .hero{
       background:linear-gradient(180deg,var(--pink),var(--pink-2));
@@ -68,8 +100,36 @@
     /* Responsive */
     @media (max-width:820px){
       .hero .container{flex-direction:column}
-      .nav-links{display:none}
       .hero h2{font-size:32px}
+      .menu-toggle{display:flex}
+      .nav-links{
+        display:none;
+        position:absolute;
+        top:100%;
+        left:0;
+        right:0;
+        background:var(--pink);
+        flex-direction:column;
+        padding:24px 6vw;
+        gap:0;
+        box-shadow:0 8px 24px rgba(0,0,0,0.15);
+        z-index:1000;
+      }
+      .nav-links.active{
+        display:flex;
+      }
+      .nav-links a{
+        padding:14px 0;
+        border-bottom:1px solid rgba(255,255,255,0.1);
+        width:100%;
+        text-align:left;
+      }
+      .nav-links a:last-child{
+        border-bottom:none;
+      }
+      .topbar{
+        position:relative;
+      }
     }
 
     footer{padding:28px 6vw;background:#fafafa;color:var(--muted);text-align:center;margin-top:36px}
@@ -87,11 +147,17 @@
         </div>
       </div>
 
+      <button class="menu-toggle" aria-label="Abrir menu" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
       <nav class="nav-links" aria-label="Menu principal">
         <a href="index.html">Home</a>
         <a href="merchants.html">Para Lojistas</a>
         <a href="privacy.html" class="active">Termos e Privacidade</a>
         <a href="contacts.html">Contato</a>
+        <a href="about.html">Sobre</a>
       </nav>
     </div>
   </header>
@@ -181,5 +247,6 @@
   <footer>
     <div class="container">Feito com ♥ — CNPJ: 62.326.027/0001-26 — Todos os direitos reservados.</div>
   </footer>
+  <script src="mobile-menu.js"></script>
 </body>
 </html>
