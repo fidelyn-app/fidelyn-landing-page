@@ -1,0 +1,666 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Promoção Fidelyn — Ganhe R$100 ou R$300!</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/png" sizes="16x16"  href="assets/favicons/favicon-16x16.png">
+  <meta name="msapplication-TileColor" content="#ffffff">
+  <meta name="theme-color" content="#ffffff">
+
+  <style>
+    :root{
+      --pink:#F22E52;
+      --dark:#2b2b35;
+      --muted:#6b6b75;
+      --card-bg: #ffffff;
+      --shadow: 0 8px 30px rgba(18,18,20,0.06);
+      --success: #10b981;
+      --error: #ef4444;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%;font-family:'Poppins',system-ui,-apple-system,Segoe UI,Roboto,'Helvetica Neue',Arial; margin:0;color:var(--dark);background:#fff}
+    a{color:inherit;text-decoration:none}
+    .container{max-width:1100px;margin:0 auto;width:100%;padding:0 6vw}
+
+    /* === TOPBAR === */
+    .topbar{
+      background:var(--pink);
+      color:#fff;
+      padding:18px 6vw;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+    }
+    .brand{display:flex;gap:12px;align-items:center}
+    .brand img{width:44px;height:44px;border-radius:0px;padding:0px;background:linear-gradient(135deg,#fff 0%, rgba(255,255,255,0.6) 100%)}
+    .brand h1{margin:0;font-size:18px;color:#fff;font-weight:600}
+    .nav-links{display:flex;gap:24px;align-items:center}
+    .nav-links a{color:rgba(255,255,255,0.95);font-weight:500;font-size:15px;padding:6px;border-radius:6px}
+    .nav-links a:hover{background: rgba(255,255,255,0.06); transform:translateY(-2px)}
+
+    /* === HERO === */
+    .hero-promo{
+      background:linear-gradient(135deg, var(--pink) 0%, #d91e45 100%);
+      color:white;
+      padding:60px 6vw 80px;
+      text-align:center;
+      position:relative;
+      overflow:hidden;
+    }
+    .hero-promo::before{
+      content:'';
+      position:absolute;
+      top:0;left:0;right:0;bottom:0;
+      background:url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><circle cx="50" cy="50" r="2" fill="rgba(255,255,255,0.1)"/></svg>');
+      opacity:0.3;
+    }
+    .hero-promo .container{position:relative;z-index:1}
+    .hero-promo h1{
+      font-size:48px;
+      line-height:1.1;
+      margin:0 0 20px;
+      font-weight:700;
+    }
+    .hero-promo .sub{
+      font-size:20px;
+      max-width:700px;
+      margin:0 auto 32px;
+      color:rgba(255,255,255,0.95);
+      line-height:1.6;
+    }
+    .prizes{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:32px;
+      max-width:800px;
+      margin:40px auto 0;
+    }
+    .prize-card{
+      background:rgba(255,255,255,0.15);
+      backdrop-filter:blur(10px);
+      border:1px solid rgba(255,255,255,0.2);
+      border-radius:16px;
+      padding:24px 32px;
+      width:100%;
+    }
+    .prize-card .amount{
+      font-size:36px;
+      font-weight:700;
+      margin-bottom:8px;
+    }
+    .prize-card .label{
+      font-size:14px;
+      opacity:0.9;
+    }
+
+    /* === REGISTRATION FORM === */
+    .registration{
+      padding:80px 6vw;
+      background:#f9f9fa;
+    }
+    .registration .heading{
+      text-align:center;
+      max-width:700px;
+      margin:0 auto 40px;
+    }
+    .registration h2{
+      font-size:32px;
+      margin:0 0 12px;
+      color:var(--dark);
+    }
+    .registration p.lead{
+      color:var(--muted);
+      font-size:16px;
+      margin:0;
+    }
+    .form-container{
+      max-width:600px;
+      margin:0 auto;
+      background:#fff;
+      border-radius:16px;
+      padding:40px;
+      box-shadow:var(--shadow);
+    }
+    .type-selector{
+      display:flex;
+      gap:12px;
+      margin-bottom:32px;
+      background:#f5f5f5;
+      padding:6px;
+      border-radius:12px;
+    }
+    .type-btn{
+      flex:1;
+      padding:14px;
+      text-align:center;
+      border-radius:8px;
+      font-weight:600;
+      font-size:15px;
+      cursor:pointer;
+      transition:all 0.2s ease;
+      background:transparent;
+      border:none;
+      color:var(--muted);
+    }
+    .type-btn.active{
+      background:var(--pink);
+      color:#fff;
+      box-shadow:0 4px 12px rgba(242,46,82,0.3);
+    }
+    .form-group{
+      margin-bottom:24px;
+    }
+    .form-group label{
+      display:block;
+      margin-bottom:8px;
+      font-weight:600;
+      font-size:14px;
+      color:var(--dark);
+    }
+    .form-group input{
+      width:100%;
+      padding:14px 16px;
+      border:2px solid #e5e5e5;
+      border-radius:8px;
+      font-size:15px;
+      font-family:inherit;
+      transition:all 0.2s ease;
+    }
+    .form-group input:focus{
+      outline:none;
+      border-color:var(--pink);
+      box-shadow:0 0 0 3px rgba(242,46,82,0.1);
+    }
+    .form-group small{
+      display:block;
+      margin-top:6px;
+      color:var(--muted);
+      font-size:13px;
+    }
+    .btn-submit{
+      width:100%;
+      padding:16px;
+      background:var(--pink);
+      color:#fff;
+      border:none;
+      border-radius:8px;
+      font-weight:600;
+      font-size:16px;
+      cursor:pointer;
+      transition:all 0.2s ease;
+      box-shadow:0 8px 20px rgba(242,46,82,0.25);
+    }
+    .btn-submit:hover{
+      transform:translateY(-2px);
+      box-shadow:0 10px 25px rgba(242,46,82,0.3);
+    }
+    .btn-submit:disabled{
+      opacity:0.6;
+      cursor:not-allowed;
+      transform:none;
+    }
+    .alert{
+      padding:14px 16px;
+      border-radius:8px;
+      margin-bottom:20px;
+      font-size:14px;
+    }
+    .alert-success{
+      background:#d1fae5;
+      color:#065f46;
+      border:1px solid #10b981;
+    }
+    .alert-error{
+      background:#fee2e2;
+      color:#991b1b;
+      border:1px solid #ef4444;
+    }
+    .alert-info{
+      background:#dbeafe;
+      color:#1e40af;
+      border:1px solid #3b82f6;
+    }
+
+    /* === RANKING === */
+    .ranking{
+      padding:80px 6vw;
+    }
+    .ranking .heading{
+      text-align:center;
+      max-width:700px;
+      margin:0 auto 50px;
+    }
+    .ranking h2{
+      font-size:32px;
+      margin:0 0 12px;
+      color:var(--dark);
+    }
+    .ranking p.lead{
+      color:var(--muted);
+      font-size:16px;
+      margin:0;
+    }
+    .ranking-grid{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:32px;
+      max-width:900px;
+      margin:0 auto;
+    }
+    .ranking-card{
+      background:#fff;
+      border-radius:16px;
+      padding:32px;
+      box-shadow:var(--shadow);
+    }
+    .ranking-card h3{
+      font-size:22px;
+      margin:0 0 24px;
+      color:var(--dark);
+      display:flex;
+      align-items:center;
+      gap:12px;
+    }
+    .ranking-card h3::before{
+      content:'🏆';
+      font-size:28px;
+    }
+    .ranking-list{
+      list-style:none;
+      padding:0;
+      margin:0;
+    }
+    .ranking-item{
+      display:flex;
+      align-items:center;
+      gap:16px;
+      padding:16px;
+      border-radius:8px;
+      margin-bottom:8px;
+      background:#f9f9fa;
+      transition:all 0.2s ease;
+    }
+    .ranking-item:hover{
+      background:#f0f0f0;
+      transform:translateX(4px);
+    }
+    .ranking-item.position{
+      font-size:24px;
+      font-weight:700;
+      color:var(--pink);
+      min-width:40px;
+      text-align:center;
+    }
+    .ranking-item.position.first{
+      color:#ffd700;
+    }
+    .ranking-item.position.second{
+      color:#c0c0c0;
+    }
+    .ranking-item.position.third{
+      color:#cd7f32;
+    }
+    .ranking-item.name{
+      flex:1;
+      font-weight:600;
+      font-size:16px;
+      color:var(--dark);
+    }
+    .ranking-empty{
+      text-align:center;
+      padding:40px;
+      color:var(--muted);
+      font-size:15px;
+    }
+
+    /* === INFO SECTION === */
+    .info-section{
+      padding:80px 6vw;
+      background:#f9f9fa;
+    }
+    .info-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit, minmax(280px, 1fr));
+      gap:24px;
+      max-width:1000px;
+      margin:0 auto;
+    }
+    .info-card{
+      background:#fff;
+      border-radius:12px;
+      padding:24px;
+      box-shadow:var(--shadow);
+    }
+    .info-card h3{
+      font-size:18px;
+      margin:0 0 12px;
+      color:var(--dark);
+    }
+    .info-card p{
+      margin:0;
+      color:var(--muted);
+      font-size:14px;
+      line-height:1.6;
+    }
+    .info-card a{
+      color:var(--pink);
+      font-weight:600;
+      text-decoration:underline;
+    }
+
+    footer{
+      padding:36px 6vw;
+      background:#fafafa;
+      color:var(--muted);
+      text-align:center;
+    }
+
+    /* === LOADING === */
+    .loading{
+      display:inline-block;
+      width:20px;
+      height:20px;
+      border:3px solid rgba(255,255,255,0.3);
+      border-radius:50%;
+      border-top-color:#fff;
+      animation:spin 0.8s linear infinite;
+      margin-right:8px;
+      vertical-align:middle;
+    }
+    @keyframes spin{
+      to{transform:rotate(360deg)}
+    }
+
+    /* === RESPONSIVE === */
+    @media (max-width:820px){
+      .nav-links{display:none}
+      .hero-promo h1{font-size:36px}
+      .hero-promo .sub{font-size:18px}
+      .prizes{grid-template-columns:1fr}
+      .ranking-grid{grid-template-columns:1fr}
+      .form-container{padding:32px 24px}
+    }
+    @media (max-width:480px){
+      .hero-promo h1{font-size:28px}
+      .hero-promo .sub{font-size:16px}
+    }
+  </style>
+</head>
+<body>
+
+  <header class="topbar">
+    <div class="container" style="display:flex;align-items:center;justify-content:space-between;">
+      <div style="display:flex;align-items:center;gap:12px;">
+        <div class="brand">
+          <img src="assets/logo.png" alt="logo">
+          <h1>Fidelyn</h1>
+        </div>
+      </div>
+      <nav class="nav-links" aria-label="Menu principal">
+        <a href="index.html">Home</a>
+        <a href="merchants.html">Para Lojistas</a>
+        <a href="privacy.html">Termos e Privacidade</a>
+        <a href="contacts.html">Contato</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero-promo">
+    <div class="container">
+      <h1>🎉 Promoção Especial Fidelyn!</h1>
+      <p class="sub">
+        Complete desafios e ganhe prêmios em dinheiro! Siga <a href="https://instagram.com/fidelyn_app" target="_blank" style="color:#fff;text-decoration:underline;font-weight:600;">@fidelyn_app</a> no Instagram e participe.
+      </p>
+      <div class="prizes">
+        <div class="prize-card">
+          <div class="amount">R$ 100</div>
+          <div class="label">Primeiro cliente que completar um cartão com no mínimo 12 pontos</div>
+        </div>
+        <div class="prize-card">
+          <div class="amount">R$ 300</div>
+          <div class="label">Primeira loja que entregar 10 rewards com no mínimo 12 pontos</div>
+        </div>
+      </div>
+      <p style="margin-top:32px;font-size:14px;opacity:0.9;">
+        ⏰ Promoção válida por 6 meses | Ao completar, o Fidelyn tem 48h para entrar em contato
+      </p>
+    </div>
+  </section>
+
+  <section class="registration">
+    <div class="container">
+      <div class="heading">
+        <h2>Participe da Promoção</h2>
+        <p class="lead">Inscreva-se como cliente ou loja e comece a competir pelos prêmios!</p>
+      </div>
+      <div class="form-container">
+        <div id="alert-container"></div>
+        
+        <div class="type-selector">
+          <button class="type-btn active" data-type="client">👤 Cliente</button>
+          <button class="type-btn" data-type="store">🏪 Loja</button>
+        </div>
+
+        <form id="registration-form">
+          <input type="hidden" id="user-type" name="type" value="client">
+          
+          <div class="form-group">
+            <label for="name">Nome *</label>
+            <input type="text" id="name" name="name" required>
+          </div>
+
+          <div class="form-group">
+            <label for="email">Email *</label>
+            <input type="email" id="email" name="email" required>
+            <small>Use o mesmo email cadastrado no app Fidelyn</small>
+          </div>
+
+          <div class="form-group">
+            <label for="phone">Telefone *</label>
+            <input type="tel" id="phone" name="phone" required placeholder="(00) 00000-0000">
+          </div>
+
+          <button type="submit" class="btn-submit" id="submit-btn">
+            Inscrever-se
+          </button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <section class="ranking">
+    <div class="container">
+      <div class="heading">
+        <h2>Ranking da Promoção</h2>
+        <p class="lead">Acompanhe quem está na frente na competição!</p>
+      </div>
+      <div class="ranking-grid">
+        <div class="ranking-card">
+          <h3>Clientes</h3>
+          <ul class="ranking-list" id="users-ranking">
+            <li class="ranking-empty">Carregando ranking...</li>
+          </ul>
+        </div>
+        <div class="ranking-card">
+          <h3>Lojas</h3>
+          <ul class="ranking-list" id="stores-ranking">
+            <li class="ranking-empty">Carregando ranking...</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="info-section">
+    <div class="container">
+      <div class="info-grid">
+        <div class="info-card">
+          <h3>📱 Como Participar</h3>
+          <p>Baixe o app Fidelyn, siga <a href="https://instagram.com/fidelyn_app" target="_blank">@fidelyn_app</a> no Instagram e inscreva-se nesta promoção usando o mesmo email do app.</p>
+        </div>
+        <div class="info-card">
+          <h3>🎯 Desafios</h3>
+          <p><strong>Clientes:</strong> Complete um cartão com no mínimo 12 pontos.<br><strong>Lojas:</strong> Entregue 10 rewards para seus clientes.</p>
+        </div>
+        <div class="info-card">
+          <h3>⏰ Prazo</h3>
+          <p>A promoção é válida por 6 meses. O primeiro a completar o desafio ganha! Após completar, o Fidelyn entrará em contato em até 48 horas.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">Feito com ♥ — CNPJ: 62.326.027/0001-26 — Todos os direitos reservados.</div>
+  </footer>
+
+  <script>
+    // API Base URL - ajuste conforme necessário
+    const API_BASE_URL = ''; // Deixe vazio se a API estiver no mesmo domínio
+
+    // Alternar entre Cliente e Loja
+    document.querySelectorAll('.type-btn').forEach(btn => {
+      btn.addEventListener('click', function() {
+        document.querySelectorAll('.type-btn').forEach(b => b.classList.remove('active'));
+        this.classList.add('active');
+        document.getElementById('user-type').value = this.dataset.type;
+      });
+    });
+
+    // Máscara de telefone
+    document.getElementById('phone').addEventListener('input', function(e) {
+      let value = e.target.value.replace(/\D/g, '');
+      if (value.length <= 11) {
+        if (value.length <= 10) {
+          value = value.replace(/^(\d{2})(\d{4})(\d{0,4}).*/, '($1) $2-$3');
+        } else {
+          value = value.replace(/^(\d{2})(\d{5})(\d{0,4}).*/, '($1) $2-$3');
+        }
+        e.target.value = value;
+      }
+    });
+
+    // Função para mostrar alertas
+    function showAlert(message, type = 'info') {
+      const container = document.getElementById('alert-container');
+      container.innerHTML = `<div class="alert alert-${type}">${message}</div>`;
+      setTimeout(() => {
+        container.innerHTML = '';
+      }, 5000);
+    }
+
+    // Submissão do formulário
+    document.getElementById('registration-form').addEventListener('submit', async function(e) {
+      e.preventDefault();
+      
+      const submitBtn = document.getElementById('submit-btn');
+      const originalText = submitBtn.innerHTML;
+      submitBtn.disabled = true;
+      submitBtn.innerHTML = '<span class="loading"></span> Enviando...';
+
+      const formData = {
+        type: document.getElementById('user-type').value,
+        name: document.getElementById('name').value.trim(),
+        email: document.getElementById('email').value.trim(),
+        phone: document.getElementById('phone').value.trim()
+      };
+
+      try {
+        const response = await fetch(`${API_BASE_URL}/promotion/register`, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(formData)
+        });
+
+        const data = await response.json();
+
+        if (response.ok) {
+          showAlert('✅ Inscrição realizada com sucesso! Boa sorte na competição!', 'success');
+          document.getElementById('registration-form').reset();
+        } else {
+          showAlert(data.message || '❌ Erro ao realizar inscrição. Tente novamente.', 'error');
+        }
+      } catch (error) {
+        console.error('Erro:', error);
+        showAlert('❌ Erro de conexão. Verifique sua internet e tente novamente.', 'error');
+      } finally {
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = originalText;
+      }
+    });
+
+    // Função para carregar ranking
+    async function loadRanking() {
+      try {
+        const response = await fetch(`${API_BASE_URL}/promotion/ranking`);
+        const data = await response.json();
+
+        const usersList = document.getElementById('users-ranking');
+        const storesList = document.getElementById('stores-ranking');
+
+        // Limpar listas
+        usersList.innerHTML = '';
+        storesList.innerHTML = '';
+
+        // Preencher ranking de usuários
+        if (data.users && data.users.length > 0) {
+          data.users.forEach((user, index) => {
+            const li = document.createElement('li');
+            li.className = 'ranking-item';
+            const position = index + 1;
+            let positionClass = '';
+            if (position === 1) positionClass = 'first';
+            else if (position === 2) positionClass = 'second';
+            else if (position === 3) positionClass = 'third';
+            
+            li.innerHTML = `
+              <span class="position ${positionClass}">${position}º</span>
+              <span class="name">${user.name || 'Anônimo'}</span>
+            `;
+            usersList.appendChild(li);
+          });
+        } else {
+          usersList.innerHTML = '<li class="ranking-empty">Ainda não há participantes</li>';
+        }
+
+        // Preencher ranking de lojas
+        if (data.stores && data.stores.length > 0) {
+          data.stores.forEach((store, index) => {
+            const li = document.createElement('li');
+            li.className = 'ranking-item';
+            const position = index + 1;
+            let positionClass = '';
+            if (position === 1) positionClass = 'first';
+            else if (position === 2) positionClass = 'second';
+            else if (position === 3) positionClass = 'third';
+            
+            li.innerHTML = `
+              <span class="position ${positionClass}">${position}º</span>
+              <span class="name">${store.name || 'Anônimo'}</span>
+            `;
+            storesList.appendChild(li);
+          });
+        } else {
+          storesList.innerHTML = '<li class="ranking-empty">Ainda não há participantes</li>';
+        }
+      } catch (error) {
+        console.error('Erro ao carregar ranking:', error);
+        document.getElementById('users-ranking').innerHTML = '<li class="ranking-empty">Erro ao carregar ranking</li>';
+        document.getElementById('stores-ranking').innerHTML = '<li class="ranking-empty">Erro ao carregar ranking</li>';
+      }
+    }
+
+    // Carregar ranking ao carregar a página e atualizar a cada 30 segundos
+    loadRanking();
+    setInterval(loadRanking, 30000);
+  </script>
+</body>
+</html>
+
